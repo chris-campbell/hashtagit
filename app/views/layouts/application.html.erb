@@ -14,8 +14,12 @@
   <%= render 'shared/nav' %>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    
   </body>
 
 </html>
