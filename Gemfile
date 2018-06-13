@@ -39,6 +39,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem "figaro"
+gem 'rack-cors'
 
 
 group :development, :test do
