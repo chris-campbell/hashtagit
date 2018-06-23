@@ -1,37 +1,42 @@
-function hashHistoryQuery() {
-
-  var hashTag = $('#search').val();
-
-  $.get("https://api.ritekit.com/v1/stats/history/" + hashTag + "?tags=" +
-            "&client_id=71877ac7a47d252480110b17cb8cdfc5421e1c47dc8b",
-            function( data ) {
-              // for (var i in data.data[0]){
-                // console.log(data.data[1][i]);
-                console.log(data.data);
-              // }
-              // console.log(data.data[0]);
-
-            //   var main = data.stats[0];
-            //
-            //   $.each(main, function(index, value) {
-            //     if(!newarr.includes(index)) {
-            //       newarr.push(value);
-            //       $.unique(newarr);
-            //     }
-            //   });
-            });
-            // console.log(newarr);
-}
-
+var hashTag = $('#search').val();
 
 $('.btn').click(function() {
-  hashHistoryQuery();
+  generateQueryTable(hashTagQuery(hashTag));
 });
 
+function hashTagQuery(userInput) {
+	var value;
+	value = $.ajax({
+		url: 'https://api.ritekit.com/v1/stats/history/' + userInput + '?tags=&client_id=' + 
+				 '71877ac7a47d252480110b17cb8cdfc5421e1c47dc8b',
+		dataType: 'json',
+		async: false
+	}).responseJSON.data; // This will wait until you get a response from the ajax request.
+	return value;
+}
 
-// function tableRowFill(item) {
-//   var rowItem =
-//   '<tr>'
-//     <td>' + item + '</td>
-//   </tr>';
-// }
+function createTableRow() {
+	return document.createElement('tr');
+}
+
+function createTableData() {
+	return document.createElement('td');
+}
+
+function tableDataValue(value) {
+	return document.createTextNode(value);
+}
+
+function generateQueryTable(queryList) {
+	var sections = ['date','tweets','exposure', 'retweets', 'mentions'];
+	for( var item in queryList ) {
+		var row = createTableRow();
+		for( var n in sections ) {
+			var data = createTableData();
+			var value = tableDataValue(queryList[ item ][ sections[ n ] ]);
+				data.appendChild( value );
+				row.appendChild( data );
+				document.getElementById('main-results').appendChild( row );
+		}
+	}
+}
