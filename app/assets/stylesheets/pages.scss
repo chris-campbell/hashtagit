@@ -1,3 +1,58 @@
+#main-results th {
+    display: fixed;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+}
+
 input#search {
-  width: 100%;
+    width: 80%;
+    margin-left: 10%;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+    border: 1px solid #cccccc;
+}
+
+.btn-2 {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.copy {
+    width: 80%;
+    margin-left: 10%;
+}
+
+header {
+    margin-left: 10%;
+}
+
+#realtime {
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid lightgrey;
+    padding: 5px;
+}
+
+#realtime section ul li {
+    color: red;
+    display: inline-block;
+    list-style: none;
+    margin-left: 10%;
+}
+
+
+#main-results {
+    width: 80%;
+    margin-top: 30px;
+}
+
+.run {
+    width: 80%;
+    margin-left: 10%;
 }

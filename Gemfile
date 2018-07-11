@@ -31,15 +31,17 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-##### Custom Gems #####
+
+# Custom Gems
 gem 'rubocop'
-gem 'foundation-rails'
+gem 'bootstrap', '~> 4.1.1'
+gem "font-awesome-rails"
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem "figaro"
-gem 'rack-cors'
+gem 'rack-cors', require: 'rack/cors'
 
 
 group :development, :test do
