@@ -1,9 +1,10 @@
 <header>
-  <h1>Homepage</h1>
+  <h1 class='main-head'>#HashTaggedIt</h1>
   <% if current_user %>
     <div>
       <%= current_user.name %>
       <%= image_tag(current_user.image) %>
+      <%= current_user.id %>
     </div>
   <% end %>
 </header>
@@ -12,9 +13,7 @@
   
   <section>
     <p class='copy'>
-      Have your content reach a bigger audience. Hashtags can extend the reach of
-      your content by grouping it with sumular content sharing the same hashtags.
-      Knowing how popular a hashtags is con maximize conversion by 50%.
+      Perform a quick search to find out a hashtags current relavence.
     </p>
   </section>
 
