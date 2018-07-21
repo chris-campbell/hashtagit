@@ -1,18 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-  <% unless user_signed_in? %>
-    <ul>
-      
-      <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+  <a class="navbar-brand" href="#">HashTaggedIt</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class='session'><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li class='session'><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+      <% end %>
     </ul>
-  <% else %>
-    <ul>
-      <%= current_user[:name] %>
-      <li><%= link_to "Logout", destroy_user_session_url, method: :delete %></li>
-    </ul>
-  <% end %>
-  
+  </div>
 </nav>
-
-
-

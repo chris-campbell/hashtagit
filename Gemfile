@@ -33,7 +33,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Custom Gems
-gem 'rubocop'
 gem 'bootstrap', '~> 4.1.1'
 gem "font-awesome-rails"
 gem 'autoprefixer-rails'
@@ -50,6 +49,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rubocop', require: false
 end
 
 group :development do
