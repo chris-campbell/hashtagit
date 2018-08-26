@@ -41,6 +41,9 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem "figaro"
 gem 'rack-cors', require: 'rack/cors'
+gem 'httparty', '~> 0.13.7'
+gem "awesome_print", require:"ap"
+gem 'gon' 
 
 
 group :development, :test do
@@ -50,6 +53,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rubocop', require: false
+  gem 'pry-rails'
 end
 
 group :development do

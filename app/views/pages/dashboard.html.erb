@@ -1,0 +1,10 @@
+<button class='click'>Test Button</button>
+
+<% @queries.each do |m| %>
+    <p>Time: <%= m.time %></p>
+    <p>Hashtag: #<%= m.hastag %></p>
+    <p>Tweets: <%= m.tweet_sum %></p>
+    <p>Retweets: <%= m.retweet_sum %></p>
+    <p>Exposure: <%= m.exposure_sum %></p>
+    <hr>
+<% end %>

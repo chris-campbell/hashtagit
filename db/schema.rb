@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724232635) do
+ActiveRecord::Schema.define(version: 20180729195543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20180724232635) do
   create_table "queries", force: :cascade do |t|
     t.string "time"
     t.string "hastag"
-    t.integer "tweet_sum"
-    t.integer "retweet_sum"
-    t.integer "exposure_sum"
+    t.bigint "tweet_sum"
+    t.bigint "retweet_sum"
+    t.bigint "exposure_sum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
