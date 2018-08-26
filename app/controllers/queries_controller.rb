@@ -15,8 +15,7 @@ class QueriesController < ApplicationController
     @query = Query.create(queries_params)
     
     @query.save
-      redirect_to root_path
-  
+    redirect_to root_path
   end
   
  

@@ -3,7 +3,7 @@
   <% if current_user %>
     <div>
       <%= current_user.name %>
-      
+      <%= image_tag current_user.image %>
       <%= current_user.id %>
     </div>
   <% end %>

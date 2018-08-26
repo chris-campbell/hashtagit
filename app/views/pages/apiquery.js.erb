@@ -1,4 +1,5 @@
-$('#main-results').DataTable({
+if ( ! $.fn.DataTable.isDataTable( '#main-results' ) ) {
+  $('#main-results').DataTable({
 
     "data": gon.queries['data'],
 	
@@ -29,7 +30,7 @@ $('#main-results').DataTable({
 	}
   ]
 });
-
+} 
 
 function currentTime() {
     var time = new Date();
@@ -39,7 +40,7 @@ function currentTime() {
 function formatResults(value) {
     let result;
     
-    if ( value == 0 ) {
+    if ( value == 0 || value == null || value == undefined || value == '') {
         return "N/A";
     }
    
