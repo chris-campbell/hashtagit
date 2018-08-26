@@ -20,7 +20,7 @@
   <section id='hashtag-search'>
     
     <div>
-      <%= form_tag pages_apiquery_path, method: :get, remote: true do %>
+      <%= form_tag 'pages/apiquery', method: :get, remote: true do %>
         <%= text_field_tag :query, params[:query] %>
         <%= submit_tag 'Search', name: nil, class: 'submit' %>
       <% end %>
