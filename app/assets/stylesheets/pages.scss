@@ -1,67 +1,61 @@
-#main-results th {
-    display: fixed;
+.logo {
+    color: #f39c12;
+    font-family: 'Righteous', cursive;
+    font-size: 1.625em;
 }
 
-table {
-    width: 80%;
+.logo:hover {
+    text-decoration: none;
+    color: #e74c3c;
+}
+
+.main-nav {
+    margin-left: 85%;
+}
+
+main {
+    width: 90%;
     margin: 0 auto;
 }
 
-input#query {
-    width: 80%;
-    margin-left: 10%;
-    height: 50px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    border-radius: 5px;
-    border-width: 1px;
-    border: 1px solid #cccccc;
-}
-
-.btn-2 {
-    width: 80%;
-    margin-left: 10%;
+.sub-logo {
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 1.125em;
 }
 
 .copy {
-    width: 80%;
-    margin-left: 10%;
+    text-align: center;
 }
 
-header {
-    margin-left: 10%;
+input {
+    width: 100%;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 5px;
+    border-style:solid;
+    border:none;
+    border-width:1px;
+    border:1px solid #cccccc;
 }
 
-#realtime {
-    width: 80%;
-    margin-left: 10%;
-    border: 1px solid lightgrey;
-    padding: 5px;
+.submit {
+    margin: 0;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background: #3498db;
+    color: #fff;
+    border: none;
 }
 
-#realtime section ul li {
-    color: red;
-    display: inline-block;
-    list-style: none;
-    margin-left: 10%;
-}
+.avatar {
+    width: 25px;
+    height: auto;
 
-
-#main-results {
-    width: 80%;
-    margin-top: 30px;
-}
-
-.run {
-    width: 80%;
-    margin-left: 10%;
-}
-
-.main-head {
     position: relative;
-    left: 20%;
-}
-
-.session {
-    float: right !important;
+    top: 4px;
 }

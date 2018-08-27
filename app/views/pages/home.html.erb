@@ -1,32 +1,24 @@
-<header>
-  <h1 class='main-head'>#HashTaggedIt</h1>
-  <% if current_user %>
-    <div>
-      <%= current_user.name %>
-      <%= image_tag current_user.image %>
-      <%= current_user.id %>
-    </div>
-  <% end %>
-</header>
+
 
 <main>
+  <header>
+    <h1 class='sub-logo'>#HashTaggedIt</h1>
+    <% if current_user %>
+      <div>
+        
+      </div>
+    <% end %>
+  </header>
   
   <section>
     <p class='copy'>
       Perform a quick search to find out a hashtags current relavence.
     </p>
   </section>
-
-  <section id='hashtag-search'>
-    
-    <div>
-      <%= form_tag pages_apiquery_path, method: :get, remote: true do %>
-        <%= text_field_tag :query, params[:query] %>
-        <%= submit_tag 'Search', name: nil, class: 'submit' %>
-      <% end %>
-    </div>
-    
-  </section>
+  
+  <div class='query-form'>
+    <%= render 'shared/form' %>
+  </div>
   
   <div id='realtime'></div>
 
