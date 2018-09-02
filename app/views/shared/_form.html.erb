@@ -1,5 +1,5 @@
-<%= form_tag pages_apiquery_path, method: :get, remote: true do %>
-    <%= text_field_tag :query, params[:query] %><br>
-    <%= submit_tag 'Search', name: nil, class: 'submit' %>
+<%= form_tag queries_path, method: :get, remote: true do %>
+    <%= text_field_tag :query %><br>
+    <%= submit_tag 'Search' %>
 <% end %>
 

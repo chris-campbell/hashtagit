@@ -1,10 +1,18 @@
+
+$(document).ready(function(){
+   var stats = <%= raw @stats.to_json %>
+   generateTable(stats.data);
+});
+
+function generateTable(data) {
+
 if ( ! $.fn.DataTable.isDataTable( '#main-results' ) ) {
   $('#main-results').DataTable({
 
-    "data": gon.queries['data'],
+  "data": data,
 	
   "columns": [
-      {   
+      {
         "data": "date",
   	  render: function( value, type, row ) {
   	      return formatDate(value);
@@ -25,12 +33,14 @@ if ( ! $.fn.DataTable.isDataTable( '#main-results' ) ) {
 	{
       "data": "exposure",
       render: function( data, type, row ) {
-         return formatResults( data );
+        return formatResults( data );
       }
 	}
   ]
 });
-} 
+}
+}
+
 
 function currentTime() {
     var time = new Date();

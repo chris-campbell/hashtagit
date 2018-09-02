@@ -1,3 +1,5 @@
+
+
 // function appendParamToUrl() {
 //   var pages = '';
 //   var term = $('#query').val();
@@ -5,10 +7,10 @@
 // }
 
 // $( document ).ready(function() {
-//     $('.btn2').click(function(){
-//         tableGenerate();
-//         // return false;
-//     });
+//     $('.submit').click(function(){
+//         console.log(gon.stats);
+//     })
+
 // });
 
 

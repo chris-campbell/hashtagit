@@ -9,14 +9,14 @@ Bundler.require(*Rails.groups)
 module Hashtagit
   class Application < Rails::Application
     
-  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  # Rails.application.config.middleware.insert_before 0, Rack::Cors do
     
-    allow do
-      origins '*'
-      resource '*', :headers => :any, :methods => [:get, :post, :options]
-    end
+  #   # allow do
+  #   #   origins '*'
+  #   #   resource '*', :headers => :any, :methods => [:get, :post, :options]
+  #   # end
 
-  end
+  # end
     
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1

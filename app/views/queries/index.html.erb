@@ -1,0 +1,40 @@
+<main>
+  <header>
+    <h1 class='sub-logo'>#HashTaggedIt</h1>
+    <% if current_user %>
+      <div>
+        
+      </div>
+    <% end %>
+  </header>
+  
+    
+    
+
+  <section>
+    <p class='copy'>
+      Perform a quick search to find out a hashtags current relavence.
+    </p>
+
+  </section>
+
+  
+  
+  <%= render 'shared/form' %>
+  
+  <div id='realtime'></div>
+
+  <div class='run'>
+      <table id='main-results'>
+        <thead>
+  		      <tr>
+  		      	 <th>Date</th>
+  		         <th>Retweets</th>
+  		         <th>Tweets</th>
+  		         <th>Exposure</th>
+  		      </tr>
+  		   </thead>
+      </table>
+   </div>
+   
+</main>
