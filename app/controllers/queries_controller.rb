@@ -1,5 +1,6 @@
 class QueriesController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     search_term = params[:query]
     if search_term.present?

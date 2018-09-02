@@ -7,7 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto main-nav">
       <% if user_signed_in? %>
-        <li class='nav-item'><%= image_tag current_user.image, class: 'avatar' %></li>
+        <% if current_user.image %>
+          <li class='nav-item'><%= image_tag current_user.image, class: 'avatar' %></li>
+        <% end %>
         <li class='nav-item logout'><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
         <li class='nav-item dashboard'><%= link_to "Dashboard", pages_dashboard_path, class: 'nav-link' %></li>
       <% else %>

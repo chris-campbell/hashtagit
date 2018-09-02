@@ -1,5 +1,5 @@
 
-
+// $('.results-area').hide();
 // function appendParamToUrl() {
 //   var pages = '';
 //   var term = $('#query').val();

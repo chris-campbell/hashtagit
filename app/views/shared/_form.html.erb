@@ -1,5 +1,5 @@
 <%= form_tag queries_path, method: :get, remote: true do %>
-    <%= text_field_tag :query %><br>
-    <%= submit_tag 'Search' %>
+    <%= text_field_tag :query, params[:query],placeholder: 'Type in hashtag here', class: 'hashtag-form' %><br>
+    <%= submit_tag 'Search', class: 'submit' %>
 <% end %>
 

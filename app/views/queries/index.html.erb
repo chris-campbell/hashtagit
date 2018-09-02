@@ -7,25 +7,18 @@
       </div>
     <% end %>
   </header>
-  
-    
-    
 
   <section>
-    <p class='copy'>
-      Perform a quick search to find out a hashtags current relavence.
+    <p class='hashtag-prompt'>
+      Enter a hashtag to find it's 30 day history:
     </p>
-
+    <div class='hashtag-query-form'>
+      <%= render 'shared/form' %>
+    </div>
   </section>
 
-  
-  
-  <%= render 'shared/form' %>
-  
-  <div id='realtime'></div>
-
-  <div class='run'>
-      <table id='main-results'>
+  <div class='results-area'>
+      <table id='tag-history-table'>
         <thead>
   		      <tr>
   		      	 <th>Date</th>

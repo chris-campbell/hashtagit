@@ -1,13 +1,15 @@
-
 $(document).ready(function(){
    var stats = <%= raw @stats.to_json %>
-   generateTable(stats.data);
+    showHistoryTable();
+    generateTable(stats.data);
+   
+   
 });
 
 function generateTable(data) {
 
-if ( ! $.fn.DataTable.isDataTable( '#main-results' ) ) {
-  $('#main-results').DataTable({
+if ( ! $.fn.DataTable.isDataTable( '#tag-history-table' ) ) {
+  $('#tag-history-table').DataTable({
 
   "data": data,
 	
@@ -41,6 +43,9 @@ if ( ! $.fn.DataTable.isDataTable( '#main-results' ) ) {
 }
 }
 
+function showHistoryTable() {
+  $(".results-area").show();
+}
 
 function currentTime() {
     var time = new Date();
