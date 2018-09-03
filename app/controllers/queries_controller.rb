@@ -6,7 +6,7 @@ class QueriesController < ApplicationController
     if search_term.present?
       @stats = Query.api_response(search_term)
     end
-    
+
     respond_to do |format|
         format.js
         format.html

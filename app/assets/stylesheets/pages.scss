@@ -1,3 +1,5 @@
+* {outline:0;}
+
 .logo {
     color: #f39c12;
     font-family: 'Righteous', cursive;
@@ -44,7 +46,7 @@ main {
 
 input[type=text] {
     padding-left: 10px;
-    font-size: 25px;
+    font-size: 18px;
     font-family: century gothic;
 }
 
@@ -70,4 +72,44 @@ input[type=text] {
 
 .results-area {
     display: none;
+}
+
+#summary {
+    display: none;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    background: #efb700;
+    color: #fff;
+}
+
+.hash-term {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hash-sum {
+    font-size: 1em;
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.information {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hashtag-form {
+    border: 0.5px solid #efefef;
+}
+
+#tag-history-table {
+    font-family: 'Montserrat', sans-serif;
 }
