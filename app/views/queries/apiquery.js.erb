@@ -1,13 +1,18 @@
 $(document).ready(function(){
     var stats = <%= raw @stats.to_json %>
-    showHistoryTable();
-    generateTable(stats.data);
+    hashValue(stats)
+    showTables();
+    generateTable(stats);
+    generateSummaryTable(stats);
+});
+
+function generateSummaryTable(stats) {
     hashTerm(stats);
     appendTweetsSum();
     appendRetweetsSum();
     appendExposureSum();
     information();
-});
+}
 
 function information() {
     var newParagraph = document.createElement("p");
@@ -23,7 +28,6 @@ function hashTerm(data) {
     var textForParagraph = document.createTextNode('#' + data['hashtag']);
     newParagraph.appendChild(textForParagraph);
     document.getElementById('summary').appendChild(newParagraph)
-    data['hashtag'];
 }
 
 function appendExposureSum () {
@@ -31,7 +35,7 @@ function appendExposureSum () {
     newParagraph.className = 'hash-sum';
     var textForParagraph = document.createTextNode('Ex: ' + formatResults(exposureSum()));
     newParagraph.appendChild(textForParagraph);
-    document.getElementById('summary').appendChild(newParagraph) 
+    document.getElementById('summary').appendChild(newParagraph);
 }
 
 function appendRetweetsSum() {
@@ -56,7 +60,16 @@ function generateTable(data) {
         $('#tag-history-table').DataTable({
         
         "searching": false,
-        "data": data,
+        
+        
+        "drawCallback": function() {
+            $.ajax({
+                  type: 'POST',
+                  url: "/queries",
+                  data: { query: { hashtag: hashValue(data), tweet_sum: tweetsSum(), retweet_sum: retweetsSum(), exposure_sum: exposureSum() } }
+                })
+            },
+            "data": data.data,
         "columns": [
             {
               "data": "date",
@@ -85,6 +98,10 @@ function generateTable(data) {
           ]
         });
     }
+}
+
+function hashValue(stats) {
+    return stats.hashtag;
 }
 
 function formatResults(value) {
@@ -120,7 +137,7 @@ function formatResults(value) {
     
 }
 
-function showHistoryTable() {
+function showTables() {
     $(".results-area").show();
     $('#summary').show();
 }

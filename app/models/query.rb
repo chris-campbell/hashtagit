@@ -6,4 +6,41 @@ class Query < ApplicationRecord
     return HTTParty.get(url + api)
   end
   
+  def format_results(value)
+    result = 0
+    
+    if value != nil
+      if ( value == 0)
+          return "N/A"
+      end
+     
+      if ( value < 1000 && value > 0)
+  	    return value.to_s
+      end
+      
+      if ( value > 1000 && value < 1000000 )
+          result = value / 1000
+          result = '%.1f' % result
+          return result.to_s + 'K';
+      end
+      
+      if ( value > 1000000 && value < 1000000000 )
+          result = value / 1000000
+          result = '%.1f' % result
+          return result.to_s + "M";
+      end
+      
+      if ( value > 100000000 && value < 100000000000 )
+          result = value / 1000000000
+          result = '%.1f' % result
+          return result.to_s + "B";
+      end
+      
+      if ( value < 1000 && value > 0)
+          return value.to_s
+      end
+      
+    end
+  end
+  
 end
