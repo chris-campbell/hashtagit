@@ -1,12 +1,20 @@
+<div class="queries-section">
+    <div class='user-info-box'>
+        <%= current_user.image %>
+    </div>
 
-<section class='queries-section'>
+
     <% @queries.each do |m| %>
         <div class='query-box'>
-            <%= time_ago_in_words(m.created_at) %><br><br>
-            <%= image_tag 'hashtag.png', class: 'hashtag-icon' %><p class='user-sum'> <%= m.hashtag %></p>
-            <%= image_tag 'twitter.png', class: 'twitter-icon' %><p class='user-sum'> <%= m.format_results(m.tweet_sum) %></p>
-            <%= image_tag 'retweets.png', class: 'hashtag-icon' %><p class='user-sum'> <%= m.format_results(m.retweet_sum) %></p>
-            <%= image_tag 'open-eye.png', class: 'hashtag-icon' %><p class='user-sum'> <%= m.format_results(m.exposure_sum) %></p>
+            <p class='time-ago'><%= time_ago_in_words(m.created_at) %> ago</p><br><br>
+            <% if m.hashtag == nil %>
+                 <p class='user-sum'><b>Hashtag: </b><span class='sum-value'><%= m.hashtag %></span></p>
+            <% else %>
+                <p class='user-sum'>Hashtag: <span class='sum-value'><%= m.hashtag.capitalize %></span></p>
+            <% end %>
+            <p class='user-sum'><b>Tweet: </b><span class='sum-value'><%= m.format_results(m.tweet_sum) %></span></p>
+            <p class='user-sum'><b>Retweets: </b><span class='sum-value'><%= m.format_results(m.retweet_sum) %></span></p>
+            <p class='user-sum'><b>Exposure: </b><span class='sum-value'><%= m.format_results(m.exposure_sum) %></span></p>
         </div>
     <% end %>
-</section>
+</div>

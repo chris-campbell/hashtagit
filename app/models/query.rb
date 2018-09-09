@@ -1,11 +1,13 @@
 class Query < ApplicationRecord
-    
+  
+  # Retrieve JSON response based on user input.  
   def self.api_response(term)
     url = "https://api.ritekit.com/v1/stats/history/#{term}?tags=&client_id="
     api = "38eae4081cf927bfba61c378a89dc3cd820c8696b5dd"
     return HTTParty.get(url + api)
   end
   
+  # Format raw numerical sum value.
   def format_results(value)
     result = 0
     

@@ -1,72 +1,14 @@
 * {
     outline:0;
-    
 }
 
 p {
     font-family: 'Montserrat', sans-serif;
 }
-.logo {
-    color: #f39c12;
-    font-family: 'Righteous', cursive;
-    font-size: 1.625em;
-}
-
-.logo:hover {
-    text-decoration: none;
-    color: #e74c3c;
-}
-
-.main-nav {
-    margin-left: 85%;
-}
 
 main {
     width: 90%;
     margin: 0 auto;
-}
-
-.sub-logo {
-    width: 367px;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    text-align: center;
-    font-family: 'Righteous', cursive;
-    font-size: 3.125em;
-}
-
-.hashtag-prompt {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.hashtag-form {
-    width: 100%;
-    margin-top: 20px;
-    height: 50px;
-    border-radius: 5px;
-    border-style:solid;
-    border:none;
-    border-width:1px;
-    border:1px solid #cccccc;
-}
-
-input[type=text] {
-    padding-left: 10px;
-    font-size: 18px;
-    font-family: century gothic;
-}
-
-.submit {
-    margin: 0;
-    height: 50px;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 60px;
-    border-radius: 5px;
-    background: #3498db;
-    color: #fff;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .avatar {
@@ -76,72 +18,19 @@ input[type=text] {
     top: 4px;
 }
 
-.results-area {
-    display: none;
-}
-
-#summary {
-    display: none;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    background: #efb700;
-    color: #fff;
-}
-
-.hash-term {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 34px;
+.user-info-box {
+    border: 1px solid lightgrey;
+    height: 70px;
     margin-bottom: 20px;
-    font-weight: 800;
 }
 
-.hash-sum {
-    font-size: 1em;
-    width: 33.3%;
-    display: inline-block;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.information {
-    font-size: 13px;
-    text-align: center;
-    margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.hashtag-form {
-    border: 0.5px solid #efefef;
-}
-
-#tag-history-table {
-    font-family: 'Montserrat', sans-serif;
-}
-
-
-.user-sum {
-    display: inline-block;
-}
-
-.twitter-icon {
-    width: 20px;
-    position: relative;
-    top: 3px;
-    margin-right: 3px;
-}
-
-.hashtag-icon {
-  width: 20px;
-  position: relative;
-  top: 4px;
-  margin-right: 3px;
-}
-
-
-.queries-section {
-    width: 500px;
-    background: red;
+.sign-up-box {
     margin: 0 auto;
+    width: 30%;
 }
+
+#new_user {
+    margin: 0 auto;
+    text-align: center;
+}
+

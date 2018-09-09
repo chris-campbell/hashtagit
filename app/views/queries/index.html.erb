@@ -1,40 +1,36 @@
 <main>
-  <header>
-    <h1 class='sub-logo'>#HashTaggedIt</h1>
-    <% if current_user %>
-      <div>
+  
+    <header>
+        <h1 class='sub-logo'>#HashTaggedIt</h1>
+    </header>
+
+    <section>
+        <p class='hashtag-prompt'>
+            Enter a hashtag to find it's 30 day history
+        </p>
         
-      </div>
-    <% end %>
-  </header>
-
-  <section>
-    
-    <p class='hashtag-prompt'>
-      Enter a hashtag to find it's 30 day history:
-    </p>
-    
-    <div id='hashtag-query-form'>
-      <%= render 'shared/form' %>
-    </div>
+        <div id='hashtag-query-form'>
+            <%= render 'shared/form' %>
+        </div>
+    </section>
   
-  </section>
-  
-  <div id='summary'></div>
+    <!-- Display's summary of table results -->
+    <div id='summary'></div>
 
-  <div class='results-area'>
-    
-      <table id='tag-history-table', class='display'>
-        <thead>
-  		      <tr>
-  		      	 <th>Date</th>
-  		         <th>Retweets</th>
-  		         <th>Tweets</th>
-  		         <th>Exposure</th>
-  		      </tr>
-  		   </thead>
-      </table>
+    <div class='results-area'>
+        
+        <!-- Display JSON values in DataTables -->
+        <table id='tag-history-table', class='display'>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Retweets</th>
+                    <th>Tweets</th>
+                    <th>Exposure</th>
+                </tr>
+            </thead>
+        </table>
       
-   </div>
+     </div>
    
 </main>

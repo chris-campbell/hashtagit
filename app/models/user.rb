@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :queries
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,8 +20,13 @@ class User < ApplicationRecord
        user.email = auth.info.email
        user.password = Devise.friendly_token[0,20]
        user.name = auth.info.name   # assuming the user model has a name
-       user.image = auth.info.image # assuming the user model has an image
+       user.image = auth.info.image.gsub('http://','https://')
+    #   user.image = auth.info.image.gsub('http:','https:') # assuming the user model has an image
      end
   end
 
+
+  def largeimage
+    "http://graph.facebook.com/#{self.uid}/picture?type=large"
+  end
 end

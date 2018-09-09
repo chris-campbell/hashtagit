@@ -1,0 +1,46 @@
+.hash-term {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hash-sum {
+    font-size: 1em;
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.user-sum {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.queries-section {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.query-box {
+    border: 1px solid lightgrey;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+
+.time-ago {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: #f39500;
+    float: right;
+}
+
+.sum-value {
+    color: #3498db;
+}

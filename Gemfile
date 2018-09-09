@@ -51,6 +51,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rubocop', require: false
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

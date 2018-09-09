@@ -1,0 +1,46 @@
+.sub-logo {
+    width: 367px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 3.125em;
+}
+
+.hashtag-prompt {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hashtag-form {
+    width: 100%;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 5px;
+    border-style:solid;
+    border:none;
+    border-width:1px;
+    border: 0.5px solid #efefef;
+}
+
+.hashtag-prompt {
+    text-align: center;
+}
+
+input[type=text] {
+    padding-left: 10px;
+    font-size: 18px;
+    font-family: century gothic;
+}
+
+.submit {
+    margin: 0;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
