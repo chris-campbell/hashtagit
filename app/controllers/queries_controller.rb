@@ -13,18 +13,10 @@ class QueriesController < ApplicationController
 
     respond_to do |format|
         format.js
-        format.html
+        format.html 
     end
   end
-  
-  def show
-    @query = Query.find(params[:id])
-  end
-  
-  def new
-    @query = Query.new
-  end
-  
+
   def create
     @query = Query.create(queries_params)
     
@@ -38,4 +30,4 @@ class QueriesController < ApplicationController
     params.require(:query).permit(:time, :tweet_sum, :retweet_sum, :exposure_sum, :hashtag)
   end
   
- end
+end

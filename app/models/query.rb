@@ -1,5 +1,10 @@
 class Query < ApplicationRecord
   
+  validates :tweet_sum, presence: true
+  validates :retweet_sum, presence: true
+  validates :exposure_sum, presence: true
+  validates :hashtag, presence: true
+  
   # Retrieve JSON response based on user input.  
   def self.api_response(term)
     url = "https://api.ritekit.com/v1/stats/history/#{term}?tags=&client_id="
