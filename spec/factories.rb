@@ -9,12 +9,10 @@ FactoryBot.define do
   end
   
   factory :query do
-    tweet_sum 444
-    retweet_sum 0331
-    exposure_sum 0610
+    tweet_sum 0
+    retweet_sum 0
+    exposure_sum 0
     hashtag 'blacklove'
-    
-    association :user
   end
   
 end

@@ -1,5 +1,6 @@
 class Query < ApplicationRecord
   
+  
   validates :tweet_sum, presence: true
   validates :retweet_sum, presence: true
   validates :exposure_sum, presence: true
@@ -37,7 +38,7 @@ class Query < ApplicationRecord
           return result.to_s + "M";
       end
       
-      if ( value > 100000000 && value < 100000000000 )
+      if ( value > 1000000 && value < 100000000000 )
           result = value / 1000000000
           result = '%.1f' % result
           return result.to_s + "B";

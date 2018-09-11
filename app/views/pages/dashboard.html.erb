@@ -1,8 +1,4 @@
 <div class="queries-section">
-    <div class='user-info-box'>
-        <%= image_tag(current_user.image) %>
-    </div>
-
 
     <% @queries.each do |m| %>
         <div class='query-box'>
@@ -17,4 +13,5 @@
             <p class='user-sum'><b>Exposure: </b><span class='sum-value'><%= m.format_results(m.exposure_sum) %></span></p>
         </div>
     <% end %>
+    
 </div>

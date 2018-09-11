@@ -39,6 +39,8 @@ RSpec.describe QueriesController, type: :controller do
             expect(response).to redirect_to root_path
             query = Query.last
             expect(query.hashtag).to eq('blacklove')
+            expect(Query.count).to eq 1
         end
     end
+    
 end
