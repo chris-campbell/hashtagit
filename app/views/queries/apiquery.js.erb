@@ -16,10 +16,14 @@ function generateSummaryTable(stats) {
 
 function information() {
     var newParagraph = document.createElement("p");
-    newParagraph.className = 'information';
+    setClass(newParagraph);
     var textForParagraph = document.createTextNode('Results show total sums of uses for this hashtag in the past 30 days.');
     newParagraph.appendChild(textForParagraph);
     document.getElementById('summary').appendChild(newParagraph) 
+}
+
+function setClass(newParagraph) {
+    newParagraph.className = 'information';
 }
 
 function hashTerm(data) {

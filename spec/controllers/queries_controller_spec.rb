@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe QueriesController, type: :controller do
 
- describe 'queries#index' do
+  describe 'queries#index' do
     it 'should successfully show page' do
       get :index
       expect(response).to have_http_status(302)
@@ -18,8 +18,8 @@ RSpec.describe QueriesController, type: :controller do
 
   describe 'queries#create' do
     it 'should require user to be signed in' do
-      post :create, params: { query: { tweet_sum: 444, retweet_sum: 0331,
-                              exposure_sum: 0610, hashtag: 'blacklove' } }
+      post :create, params: { query: { tweet_sum: 444, retweet_sum: 3331,
+                              exposure_sum: 6010, hashtag: 'blacklove' } }
       expect(response).to redirect_to new_user_session_path
     end
 
@@ -30,8 +30,8 @@ RSpec.describe QueriesController, type: :controller do
       post :create, params: {
         query: {
           tweet_sum: 444,
-          retweet_sum: 0331,
-          exposure_sum: 0610,
+          retweet_sum: 3031,
+          exposure_sum: 6010,
           hashtag: 'blacklove'
         }
       }

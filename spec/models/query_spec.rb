@@ -5,8 +5,9 @@ RSpec.describe Query, type: :model do
 
     it 'should should N/A if value is equal to 0' do
       query = FactoryBot.create(:query)
-      value = query.tweet_sum
-      expect(query.format_results(value)).to eq 'N/A'
+      
+      value = query.format_results(query.tweet_sum)
+      expect(query.format_results(value.to_s)).to eq 'N/A'
     end
 
     it 'should return value if value is less 1000 & greater than 0' do
@@ -28,7 +29,7 @@ RSpec.describe Query, type: :model do
     end
 
     it 'appended B if greater 100000000 and less than 100000000000' do
-      query = FactoryBot.create(:query, tweet_sum: 1000001)
+      query = FactoryBot.create(:query, tweet_sum: 1000000000)
       value = query.tweet_sum
       expect(query.format_results(value)).to eq '1.0B'
     end
