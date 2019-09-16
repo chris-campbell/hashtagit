@@ -27,14 +27,18 @@
 }
 
 input[type=text] {
-    padding-left: 10px;
-    font-size: 18px;
+    padding-left: 35px;
+    font-size: 52px;
     font-family: century gothic;
+    font-family: Helvetica;
+    height: 105px;
+    color: #1db7ff;
+    background: #def4ffed;
 }
 
 .submit {
     margin: 0;
-    height: 50px;
+    height: 100px;
     width: 100%;
     margin-top: 20px;
     margin-bottom: 60px;
@@ -42,5 +46,11 @@ input[type=text] {
     background: #3498db;
     color: #fff;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica;
+    font-weight: 900;
+    font-size: 28px;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #8db1c1;
 }

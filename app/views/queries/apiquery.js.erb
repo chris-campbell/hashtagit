@@ -1,181 +1,230 @@
 $(document).ready(function(){
-    var stats = <%= raw @stats.to_json %>
-    hashValue(stats)
-    showTables();
-    generateTable(stats);
-    generateSummaryTable(stats);
+  var stats = <%= raw @stats.to_json %>
+  hashValue(stats)
+  showTables();
+  generateTable(stats);
+  generateSummaryTable(stats);
 });
 
-function generateSummaryTable(stats) {
-    hashTerm(stats);
-    appendTweetsSum();
-    appendRetweetsSum();
-    appendExposureSum();
-    information();
+// Generates summary table
+const generateSummaryTable = (stats) => {
+  hashTerm(stats);
+  appendTweetsSum();
+  appendRetweetsSum();
+  appendExposureSum();
+  information();
 }
 
-function information() {
-    var newParagraph = document.createElement("p");
-    setClass(newParagraph);
-    var textForParagraph = document.createTextNode('Results show total sums of uses for this hashtag in the past 30 days.');
-    newParagraph.appendChild(textForParagraph);
-    document.getElementById('summary').appendChild(newParagraph) 
+// Creates a HTML element with provided element
+const createElements = (element) => {
+  return document.createElement(element);
 }
 
-function setClass(newParagraph) {
-    newParagraph.className = 'information';
+// Creates a node of text
+const createNode = (text) => {
+  return document.createTextNode(text);
 }
 
-function hashTerm(data) {
-    var newParagraph = document.createElement("p");
-    newParagraph.className = 'hash-term';
-    var textForParagraph = document.createTextNode('#' + data['hashtag']);
-    newParagraph.appendChild(textForParagraph);
-    document.getElementById('summary').appendChild(newParagraph)
+// Set class to element
+const setClass = (nodeElement, classname) => {
+  nodeElement.className = classname;
 }
 
-function appendExposureSum () {
-    var newParagraph = document.createElement("p");
-    newParagraph.className = 'hash-sum';
-    var textForParagraph = document.createTextNode('Ex: ' + formatResults(exposureSum()));
-    newParagraph.appendChild(textForParagraph);
-    document.getElementById('summary').appendChild(newParagraph);
+// Appends sum of Exposure
+const appendExposureSum = () => {
+  return appendItems('p', 'hash-sum', 'Ex', exposureSum());
 }
 
-function appendRetweetsSum() {
-    var newParagraph = document.createElement("p");
-    newParagraph.className = 'hash-sum';
-    var textForParagraph = document.createTextNode('Rt: ' + formatResults(retweetsSum()));
-    newParagraph.appendChild(textForParagraph);
-    document.getElementById('summary').appendChild(newParagraph)  
+// Appends sum of Retweets
+const appendRetweetsSum = () => {
+  return appendItems('p', 'hash-sum', 'Rt', retweetsSum());
 }
 
-function appendTweetsSum() {
-    var newParagraph = document.createElement("p");
-    newParagraph.className = 'hash-sum';
-    var textForParagraph = document.createTextNode('Tw: ' + formatResults(tweetsSum()));
-    newParagraph.appendChild(textForParagraph);
-    document.getElementById('summary').appendChild(newParagraph)
+// Appends sum of Tweets
+const appendTweetsSum = () => {
+  return appendItems('p', 'hash-sum', 'Tw', tweetsSum());
 }
 
-function generateTable(data) {
+// Display value with one number after decimal
+const oneDecimal = (result, value) => {
+  return result.toFixed(1) + value;
+}
 
+// Search term provided by user
+const hashValue = (stats) => {
+    return stats.hashtag;
+}
+
+// Display table
+const showTables = () => {
+  $(".results-area").show();
+  $('#summary').show();
+}
+
+// Format current time
+const currentTime = () => {
+    var time = new Date();
+    return time.getHours() + ':' + time.getMinutes();
+}
+
+// Get sum of retweet column
+const tweetsSum = () => {
+    var table = $('#tag-history-table').DataTable();
+    return sumOfColumn(table, 1);
+}
+
+// Get sum of retweet column
+const retweetsSum = () => {
+    var table = $('#tag-history-table').DataTable();
+    return sumOfColumn(table, 2);
+}
+
+// Get sum of exposure column
+const exposureSum = () => {
+    var table = $('#tag-history-table').DataTable();
+    return sumOfColumn(table, 3);
+}
+
+// Get sum of column
+const sumOfColumn = (table, value) => {
+  return table.column(value).data().sum()
+}
+
+const validateData = (data) => {
+  let result;
+  formatResults(data) === undefined ?
+  result = 'N/A' : result = formatResults(data)
+  return result;
+}
+
+// Format date
+const formatDate = (dateValue) => {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
+  		          'Sept', 'Oct', 'Nov', 'Dec'];
+
+    var date2 = new Date(dateValue);
+    return months[ date2.getMonth() ] + " " + date2.getDate() +
+          ", " + date2.getFullYear();
+}
+
+// Displays message in the summary box
+const information = () => {
+  const nodeElement = createElements('p')
+  const textForParagraph = createNode(
+    "Results show total sums of uses for this hashtag in the past 30 days."
+  );
+  setClass(nodeElement, 'information');
+  nodeElement.appendChild(textForParagraph);
+  document.getElementById('summary').appendChild(nodeElement);
+}
+
+// Appends given items to DOM element
+const appendItems = (element, classNames, acro, type) => {
+  var newParagraph = createElements(element);
+  var img = new Image();
+  img.src = "assets/megaphone.png"
+  setClass(newParagraph, classNames);
+  var textForParagraph = createNode(formatResults(type));
+  newParagraph.appendChild(img)
+  newParagraph.appendChild(textForParagraph);
+
+  document.getElementById('summary').appendChild(newParagraph);
+}
+
+// Appends hash search value to element
+const hashTerm = (data) => {
+  var newParagraph = createElements("p");
+  setClass(newParagraph, 'hash-term');
+  var textForParagraph = createNode('#' + data['hashtag']);
+  newParagraph.appendChild(textForParagraph);
+  document.getElementById('summary').appendChild(newParagraph)
+}
+
+// Submit user query result to database
+const ajaxRequest = (data) => {
+  return $.ajax({
+          type: 'POST',
+          url: "/queries",
+          data: {
+            query: {
+              hashtag: hashValue(data),
+              tweet_sum: tweetsSum(),
+              retweet_sum: retweetsSum(),
+              exposure_sum: exposureSum()
+            }
+          }
+        })
+}
+
+// Generate table
+const generateTable = (data) => {
     if ( ! $.fn.DataTable.isDataTable( '#tag-history-table' ) ) {
         $('#tag-history-table').DataTable({
-        
         "searching": false,
-        
-        
-        "drawCallback": function() {
-            $.ajax({
-                  type: 'POST',
-                  url: "/queries",
-                  data: { query: { hashtag: hashValue(data), tweet_sum: tweetsSum(), retweet_sum: retweetsSum(), exposure_sum: exposureSum() } }
-                })
-            },
-            "data": data.data,
-        "columns": [
+        "responsive": true,
+        "drawCallback": () => {
+            ajaxRequest(data)
+          },
+          "data": data.data,
+          "columns": [
             {
               "data": "date",
-        	  render: function( value, type, row ) {
-        	      return formatDate(value);
-        	  }
+        	     render: ( value, type, row ) => {
+                  return formatDate(value);
+        	     }
           	},
           	{
           	  "data": "retweets",
-          	   render: function( data, type, row ) {
-          	      return formatResults( data );
-          	  }
-          	},
-          	{
-          	  "data": "tweets",
-          	   render: function( data, type, row ) {
-            	     return formatResults( data );
+          	   render: ( data, type, row ) => {
+                 return validateData(data);
           	   }
           	},
           	{
-                "data": "exposure",
-                render: function( data, type, row ) {
-                  return formatResults( data );
-                }
+          	  "data": "tweets",
+          	   render: ( data, type, row ) => {
+                 return validateData(data);
+          	   }
+          	},
+          	{
+              "data": "exposure",
+              render: ( data, type, row ) => {
+                return validateData(data)
+              }
           	}
           ]
         });
     }
 }
 
-function hashValue(stats) {
-    return stats.hashtag;
-}
-
-function formatResults(value) {
+// Format results
+const formatResults = (value) => {
+  console.log(value)
     let result;
-    
+
     if ( value == 0 || value == null || value == undefined || value == '') {
         return "N/A";
     }
-   
+
     if ( value < 1000 && value > 0) {
 	    return value;
     }
-    
+
     if ( value > 1000 && value < 1000000 ) {
         result = value / 1000;
-        return result.toFixed(1) + 'K';
+        return oneDecimal(result, 'K');
     }
-    
+
     if ( value > 1000000 && value < 1000000000 ) {
         result = value / 1000000;
-        return result.toFixed(1) + "M";
+        return oneDecimal(result, 'M');
     }
-    
+  
     if ( value > 100000000 && value < 100000000000 ) {
         result = value / 1000000000;
-        return result.toFixed(1) + "B";
+        return oneDecimal(result, 'B');
     }
-    
-    
+
     if ( value < 1000 && value > 0) {
         return value;
     }
-    
 }
-
-function showTables() {
-    $(".results-area").show();
-    $('#summary').show();
-}
-
-function currentTime() {
-    var time = new Date();
-    return time.getHours() + ':' + time.getMinutes();
-}
-
-function tweetsSum() {
-    var table = $('#tag-history-table').DataTable();
-    return table.column( 1 ).data().sum();
-}
-
-function retweetsSum() {
-    var table = $('#tag-history-table').DataTable();
-    return table.column( 2 ).data().sum();
-}
-
-function exposureSum() {
-    var table = $('#tag-history-table').DataTable();
-    return table.column( 3 ).data().sum();
-}
-
-function formatDate(dateValue) {
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
-  		          'Sept', 'Oct', 'Nov', 'Dec'];
-  		          
-    var date2 = new Date(dateValue);
-    return months[ date2.getMonth() ] + " " + date2.getDate() +
-          ", " + date2.getFullYear();
-}
-
-
-
-
-

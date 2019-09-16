@@ -3,5 +3,26 @@
 }
 
 #tag-history-table {
-    font-family: 'Montserrat', sans-serif;
+  border: 2px solid #343a40b3;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  top: 20px;
+  margin-bottom: 34px;
+}
+
+table.dataTable tbody td {
+    padding: 8px 10px;
+    text-align: center;
+}
+
+table.dataTable thead th {
+  text-align: center;
+}
+
+table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+    background-color: #d4eaf9;
+    font-size: 18px;
+    color: #1db7ff;
+    font-weight: 600;
 }

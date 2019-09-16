@@ -12,6 +12,15 @@
     display: inline-block;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    color: #20b7fd;
+    font-weight: 900;
+    img {
+      width: 4%;
+      position: relative;
+      right: 10px;
+      top: 4px;
+      min-width: 21.5px;
+    }
 }
 
 .user-sum {

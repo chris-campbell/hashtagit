@@ -2,6 +2,7 @@
     color: #f39c12;
     font-family: 'Righteous', cursive;
     font-size: 1.625em;
+    width: 200px;
 }
 
 .logo:hover {
@@ -11,4 +12,17 @@
 
 .main-nav {
     margin-left: 85%;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.navbar {
+  height: 80px;
+  color: #fff;
+  font-family: Helvetica;
+  img {
+    width: 25%;
+  }
 }

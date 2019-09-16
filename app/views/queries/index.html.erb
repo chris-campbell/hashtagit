@@ -1,5 +1,4 @@
 <main>
-  
     <header>
         <h1 class='sub-logo'>#HashTaggedIt</h1>
     </header>
@@ -8,29 +7,27 @@
         <p class='hashtag-prompt'>
             Enter a hashtag to find it's 30 day history
         </p>
-        
         <div id='hashtag-query-form'>
             <%= render 'shared/form' %>
         </div>
     </section>
-  
+
     <!-- Display's summary of table results -->
     <div id='summary'></div>
 
     <div class='results-area'>
-        
         <!-- Display JSON values in DataTables -->
-        <table id='tag-history-table', class='display'>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Retweets</th>
-                    <th>Tweets</th>
-                    <th>Exposure</th>
-                </tr>
-            </thead>
-        </table>
-      
+        <div class='table-responsive'>
+          <table id='tag-history-table' class='display' cellspacing='0' width='100%'>
+              <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>Retweets</th>
+                      <th>Tweets</th>
+                      <th>Exposure</th>
+                  </tr>
+              </thead>
+          </table>
+        </div>
      </div>
-   
 </main>

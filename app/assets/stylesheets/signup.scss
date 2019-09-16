@@ -1,0 +1,123 @@
+$primary-btn-color: #e17055;
+$hover-btn-color: #b15742;
+
+.remember-me {
+  position: relative;
+  bottom: 0.6875rem;
+  font-size: 0.813em;
+}
+
+.already-member {
+  font-size: 0.750em;
+  color: #fff;
+}
+
+.forgot-password {
+  font-size: 0.688em;
+}
+
+.min-password {
+  font-size: 0.688em;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+form {
+  padding: 1.25rem;
+  border-radius: 0.25rem;
+}
+
+.form-box {
+  background: #313131;
+  border-radius: 0.500em;
+  border: 0.063em solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 0.625em;
+  width: 30%;
+  min-width: 15.625em;
+  max-width: 335px;
+  border: 0.063em solid lightgrey;
+  margin: 0 auto;
+  margin-top: 6.250em;
+
+  h2 {
+    text-align: center;
+    color: #fff;
+    margin: auto;
+    margin-bottom: 0.4375rem;
+    padding-top: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+    font-family: 'Francois One', sans-serif;
+    font-size: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .form-input input {
+    width: 100%;
+    border: 0.0625rem solid #cccccc;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.938em;
+  }
+  .form-labels {
+    font-size: 0.813em;
+    position: relative;
+    top: 0.313rem;
+  }
+}
+
+.min-password {
+  font-size: 0.688em;
+}
+
+.action-btn {
+  margin-top: 1.313rem;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 2.500rem;
+  border-radius: 0.500rem;
+  border: none;
+  background: $primary-btn-color;
+  margin-top: 0.625rem;
+  margin-bottom: 0.313rem;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background: $hover-btn-color;
+  border: 1px solid #fff;
+  width: 101%;
+  height: 2.510rem;
+}
+
+input {
+  border-radius: 0.313rem;
+  height: 2.188rem;
+  padding-left: 0.313rem;
+  font-size: 0.625em;
+}
+
+input::placeholder {
+  font-size: 0.813em;
+  padding-left: 0.250rem;
+  color: #bdc3c7;
+}
